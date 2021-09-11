@@ -36,7 +36,7 @@ export class FormContainer extends Component {
             email: '',
             phone: '',
             filled: false,
-            qrString: '',
+            qrString: ''
 
         }
 
@@ -46,44 +46,42 @@ export class FormContainer extends Component {
 
     handleSubmitForm(e) {
         e.preventDefault();
-        this.setState({qrString: JSON.stringify(this.state)});
-        this.setState({filled: true});
-
+        this.pushData();
         console.log(this.state)
         //register
 
     }
 
-    // pushData(){
-    //     let data = this.state
+    pushData(){
+        let data = this.state
 
-    //     let body = {
-    //         firstName: this.state.firstName,
-    //         lastName: this.state.lastName,
-    //         gender: this.state.gender
-    //     }
+        let body = {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            gender: data.gender,
+            birthdate: data.birthdate,
+            email: data.email,
+            phoneNumber: data.phone
+        };
 
-    //     fetch('http://quer.iperka.com/users/register', {
-    //         method: 'POST',
-    //         headers: {
-    //         'Accept': 'application/json'
-    //       },
-    //     // firstName: string;
-    //     //     lastName: string;
-    //     //     gender: boolean;
-    //     //     birthdate: string;
-    //     //     email: string;
-    //     //     phoneNumber?: string;
+        let test = JSON.stringify(body);
 
-    //       })
-    //         .then(function(response) {
-    //             return response.json()
-    //           }).then(function(body) {
-    //             console.log(body);
-    //           });
-    //       }
-
-    // }
+        fetch('http://quer.iperka.com/users/register', {
+            method: 'POST',
+            body: test,
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          })
+            .then(function(response) {
+                return response.json()
+              }).then((body) => {
+                console.log(body.data._id);
+                this.setState({qrString: body.data._id});
+                this.setState({filled: true});
+              });
+         }
 
 
     handleFirstNameChange(e) {
@@ -106,7 +104,6 @@ export class FormContainer extends Component {
         this.setState({ phone: e.target.value });
     }
     handleGenderChange(e){
-        console.log(e)
         this.setState({ gender: e.value});
     }
 
@@ -153,16 +150,10 @@ export class FormContainer extends Component {
                     
                 </form>
              </section>
-<<<<<<< HEAD
              <section hidden={!this.state.filled}>
                  <H1 title="Generated Code" ></H1>
                 {(this.state.filled) ? <QRCode className="mx-auto" value={this.state.qrString} /> : ''}
                 <H2 title="Please show this code to authorized personel"></H2>
-=======
-             <section hidden={!this.state.filled} className="transition">
-                 <H1 title="Show this QR Code to " ></H1>
-                {(this.state.filled) ? <QRCode className="mx-auto mt-12" value={this.state.qrString} /> : ''}
->>>>>>> 769d7932cffa9f51cbb7aaecf1e95e5239f6a87e
              </section>
             </div>
 
