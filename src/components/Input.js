@@ -8,4 +8,4 @@ export class Input extends Component {
     }
 }
 
-export default input
+export default Input
