@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
+import Button from './Button';
 import H1 from './H1'
-import Button from './Button'
-import Input from './Input'
 import Label from './Label'
 
 export class FormContainer extends Component {
@@ -56,8 +55,8 @@ export class FormContainer extends Component {
     render() {
 
         return (
-            <div className="container px-4 mt-12">
-                <H1 title="Registrieren"></H1>
+            <div className="container mx-auto px-4 mt-12">
+                <H1 title="Register"></H1>
                 <form onSubmit={this.handleSubmitForm}>
 
                     <div className="mt-12">
@@ -84,8 +83,8 @@ export class FormContainer extends Component {
                         <input name="phone" type="text" placeholder="Type in your mobile phone number" onChange={this.handlePhoneChange} />
                     </div>
 
-                    <button className="select-none outline-none shadow text-lg mt-8 float-right rounded-full px-4 py-2 font-semibold bg-blue-500 hover:bg-blue-700 text-white" name="Submit" type="submit">Sumbit</button>
-                </form>
+                    <Button name="submit" displayName="Submit" type="submit" />
+                 </form>
 
             </div>
         )
