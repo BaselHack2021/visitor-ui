@@ -1,12 +1,11 @@
 import FormContainer from "./components/FormContainer";
-import DashboardContainer from "./components/DashboardContainer";
+import AccountContainer from "./components/AccountContainer";
 
 import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 
@@ -16,11 +15,8 @@ export default function App() {
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/dashboard">
-              <DashboardContainer />
-            </Route>
-            <Route path="/users">
-              <Users />
+            <Route path="/account">
+              <AccountContainer />
             </Route>
             <Route path="/">
               <FormContainer/>
@@ -29,26 +25,3 @@ export default function App() {
       </Router>
   );
 }
-
-// function Home() {
-//   return <h2>Home</h2>;
-// }
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
-
-
-//
-//
-// function App() {
-//   return (
-//     <FormContainer></FormContainer>
-//   );
-// }
-
-// export default App;

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class H1 extends Component {
     render() {
         return (
-            <h1 className="text-4xl font-bold text-center">{this.props.title}</h1>
+            <h3 className="text-3xl font-bold text-center">{this.props.title}</h3>
         )
     }
 }
