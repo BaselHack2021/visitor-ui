@@ -40,7 +40,6 @@ export class FormContainer extends Component {
         // });
         // let json = JSON.stringify(object);
 
-
         // console.log(this.objectifyForm(json))
     }
 
@@ -64,7 +63,9 @@ export class FormContainer extends Component {
         this.setState({ phone: e.target.value });
     }
 
+
     render() {
+
         return (
             <div className="container px-4">
                 <H1 title="Registrieren"></H1>
@@ -80,24 +81,21 @@ export class FormContainer extends Component {
                         <input name="lastName" type="text" placeholder="Type in your lastname" onChange={this.handleLastNameChange} />
                     </div>
                     <div>
-
                         <Label for="birthdate" name="Birthdate" />
                         <input name="birthdate" type="date" placeholder="Type in your birthdate" onChange={this.handleBirthdateChange} />
                     </div>
                     <div>
-
                         <Label for="email" name="E-Mail" />
                         <input name="email" type="email" placeholder="Type in your e-mail adress" onChange={this.handleEmailChange} />
                     </div>
                     <div>
-
                         <Label for="phone" name="Mobile" />
                         <input name="phone" type="text" placeholder="Type in your mobile phone number" onChange={this.handlePhoneChange} />
                     </div>
 
-
                     <button className="rounded-full px-4 py-2 font-semibold bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" name="Submit" type="submit">Sumbit</button>
                 </form>
+
             </div>
         )
     }
