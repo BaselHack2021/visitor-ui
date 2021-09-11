@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-export class H1 extends Component {
+export class H2 extends Component {
     render() {
         return (
-            <h3 className="text-3xl font-bold text-center">{this.props.title}</h3>
+            <h2 className="text-4xl font-semibold text-center">{this.props.title}</h2>
         )
     }
 }
 
-export default H1
+export default H2

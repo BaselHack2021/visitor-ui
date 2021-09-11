@@ -8,7 +8,7 @@ export class AccountContainer extends Component {
     constructor(props) {
         super(props)
 
-        this.getData()
+        //this.getData()
 
         this.state = {
             balance: 0,
@@ -32,11 +32,15 @@ export class AccountContainer extends Component {
 
     render() {
         return (
-            <div className="container mx-auto px-4 mt-12">
+            <div className="container mx-auto flex flex-col px-4 pt-12 pb-36 h-screen box-border">
                 <H1 title="Account"></H1>
-                <div>
-                    <H3 title="Your bank balance is:" />
-                    <H2 title={ `${this.state.balance} CHF` } />
+                <div className="my-auto">
+                    <div>
+                        <H3 title="Your bank balance is:" />
+                        <div className="mt-8">
+                            <H2 title={`${this.state.balance} CHF`} />
+                        </div>
+                    </div>
                 </div>
             </div>
         )

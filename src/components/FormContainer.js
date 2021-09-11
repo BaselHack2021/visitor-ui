@@ -66,7 +66,7 @@ export class FormContainer extends Component {
 
         return (
             <div className="container mx-auto px-4 mt-12">
-            <section hidden={this.state.filled} >
+            <section hidden={this.state.filled} className="transition">
                 <H1 title="Register"></H1>
                 <form onSubmit={this.handleSubmitForm}>
 
@@ -98,9 +98,9 @@ export class FormContainer extends Component {
                     
                 </form>
              </section>
-             <section hidden={!this.state.filled}>
+             <section hidden={!this.state.filled} className="transition">
                  <H1 title="Show this QR Code to " ></H1>
-                {(this.state.filled) ? <QRCode className="mx-auto" value={this.state.qrString} /> : ''}
+                {(this.state.filled) ? <QRCode className="mx-auto mt-12" value={this.state.qrString} /> : ''}
              </section>
             </div>
 
