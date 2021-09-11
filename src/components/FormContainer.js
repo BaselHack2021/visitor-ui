@@ -38,6 +38,8 @@ export class FormContainer extends Component {
         this.setState({filled: true});
 
         console.log(this.state)
+        //register
+
     }
 
     handleFirstNameChange(e) {

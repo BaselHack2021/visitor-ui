@@ -1,5 +1,5 @@
 import FormContainer from "./components/FormContainer";
-
+import DashboardContainer from "./components/DashboardContainer";
 
 import React from "react";
 import {
@@ -8,6 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 
 export default function App() {
   return (
@@ -19,7 +20,7 @@ export default function App() {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/dashboard">DashboardContainer</Link>
               </li>
               <li>
                 <Link to="/users">Users</Link>
@@ -30,8 +31,8 @@ export default function App() {
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/about">
-              <About />
+            <Route path="/dashboard">
+              <DashboardContainer />
             </Route>
             <Route path="/users">
               <Users />
