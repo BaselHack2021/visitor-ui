@@ -17,26 +17,28 @@ export class AccountContainer extends Component {
 
 
     getData(e) {
+        // let path = 'http://localhost:3000/users/613cb22278ae99dfdccf2033'
         let path = 'http://quer.iperka.com/users/613cb22278ae99dfdccf2033'
-        fetch(path)
-            .then((response) => {
-                console.log(response.json())
-                return response.json();
+        let response = fetch(path).then((data) => {
+            data.json().then((e)=>{
+                console.log(e.data.email)
+                this.state = e.data
+                console.log(this.state.gender)
             })
-            .then((data) => {
-                // Insert from fetch
-                const balance = 0;
-                this.setState({ balance: balance })
-            });
+        });
     }
 
     render() {
         return (
-            <div className="container mx-auto px-4 mt-12">
+            <div className="container mx-auto flex flex-col px-4 pt-12 pb-36 h-screen box-border">
                 <H1 title="Account"></H1>
-                <div>
-                    <H3 title="Your bank balance is:" />
-                    <H2 title={ `${this.state.balance} CHF` } />
+                <div className="my-auto">
+                    <div>
+                        <H3 title="Your bank balance is:" />
+                        <div className="mt-8">
+                            <H2 title={`${this.state.balance} CHF`} />
+                        </div>
+                    </div>
                 </div>
             </div>
         )
