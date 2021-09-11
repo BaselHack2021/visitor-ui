@@ -13,24 +13,6 @@ import {
 export default function App() {
   return (
       <Router>
-<<<<<<< Updated upstream
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/dashboard">DashboardContainer</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
-
-=======
->>>>>>> Stashed changes
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
