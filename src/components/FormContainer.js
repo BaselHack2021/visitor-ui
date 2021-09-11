@@ -3,6 +3,8 @@ import H1 from './H1'
 import Button from './Button'
 import Input from './Input'
 import Label from './Label'
+import QRCode from "react-qr-code";
+
 
 export class FormContainer extends Component {
 
@@ -17,19 +19,25 @@ export class FormContainer extends Component {
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handlePhoneChange = this.handlePhoneChange.bind(this);
 
+
+
         this.state = {
             firstName: '',
             lastName: '',
             birthdate: '',
             email: '',
             phone: '',
+            filled: false,
+            qrString: '',
         }
     }
 
 
     handleSubmitForm(e) {
         e.preventDefault();
-        
+        this.setState({qrString: JSON.stringify(this.state)});
+        this.setState({filled: true});
+
         console.log(this.state)
 
 
@@ -98,7 +106,10 @@ export class FormContainer extends Component {
 
                     <button className="rounded-full px-4 py-2 font-semibold bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" name="Submit" type="submit">Sumbit</button>
                 </form>
+                {(this.state.filled) ? <QRCode value={this.state.qrString} /> : ''}
+
             </div>
+
         )
     }
 }
