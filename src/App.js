@@ -13,6 +13,7 @@ import {
 export default function App() {
   return (
       <Router>
+<<<<<<< Updated upstream
         <div>
           <nav>
             <ul>
@@ -28,6 +29,8 @@ export default function App() {
             </ul>
           </nav>
 
+=======
+>>>>>>> Stashed changes
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
@@ -41,9 +44,7 @@ export default function App() {
               <FormContainer/>
             </Route>
           </Switch>
-        </div>
       </Router>
-
   );
 }
 
