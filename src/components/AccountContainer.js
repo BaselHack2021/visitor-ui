@@ -8,7 +8,7 @@ export class AccountContainer extends Component {
     constructor(props) {
         super(props)
 
-        this.getData()
+        //this.getData()
 
         this.state = {
             balance: 0,

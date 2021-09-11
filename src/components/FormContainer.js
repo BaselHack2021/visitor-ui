@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 import Button from './Button';
 import H1 from './H1'
+import H2 from './H2'
 import Label from './Label'
 import QRCode from "react-qr-code";
+import Select from 'react-select'
+
+
 
 
 export class FormContainer extends Component {
+
+            options = [
+            {value: true, label: "Male"},
+            {value: false, label: "Female"},
+            ];
 
     constructor(props) {
         super(props)
@@ -16,18 +25,22 @@ export class FormContainer extends Component {
         this.handleBirthdateChange = this.handleBirthdateChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handlePhoneChange = this.handlePhoneChange.bind(this);
-
+        this.handleGenderChange = this.handleGenderChange.bind(this);
 
 
         this.state = {
             firstName: '',
             lastName: '',
+            gender: null,
             birthdate: '',
             email: '',
             phone: '',
             filled: false,
             qrString: '',
+
         }
+
+
     }
 
 
@@ -40,6 +53,38 @@ export class FormContainer extends Component {
         //register
 
     }
+
+    // pushData(){
+    //     let data = this.state
+
+    //     let body = {
+    //         firstName: this.state.firstName,
+    //         lastName: this.state.lastName,
+    //         gender: this.state.gender
+    //     }
+
+    //     fetch('http://quer.iperka.com/users/register', {
+    //         method: 'POST',
+    //         headers: {
+    //         'Accept': 'application/json'
+    //       },
+    //     // firstName: string;
+    //     //     lastName: string;
+    //     //     gender: boolean;
+    //     //     birthdate: string;
+    //     //     email: string;
+    //     //     phoneNumber?: string;
+
+    //       })
+    //         .then(function(response) {
+    //             return response.json()
+    //           }).then(function(body) {
+    //             console.log(body);
+    //           });
+    //       }
+
+    // }
+
 
     handleFirstNameChange(e) {
         this.setState({ firstName: e.target.value });
@@ -59,6 +104,10 @@ export class FormContainer extends Component {
 
     handlePhoneChange(e) {
         this.setState({ phone: e.target.value });
+    }
+    handleGenderChange(e){
+        console.log(e)
+        this.setState({ gender: e.value});
     }
 
 
@@ -80,9 +129,15 @@ export class FormContainer extends Component {
                         <input name="lastName" type="text" placeholder="Type in your lastname" onChange={this.handleLastNameChange} />
                     </div>
                     <div className="mt-4">
+                        
+                        <Label for="gender" name="Gender" />
+                        <Select name="gender" options={this.options} onChange={this.handleGenderChange} />
+                    </div>
+                    <div className="mt-4">
 
                         <Label for="birthdate" name="Birthdate" />
                         <input name="birthdate" type="date" placeholder="Type in your birthdate" onChange={this.handleBirthdateChange} />
+
                     </div>
                     <div className="mt-4">
 
@@ -99,8 +154,9 @@ export class FormContainer extends Component {
                 </form>
              </section>
              <section hidden={!this.state.filled}>
-                 <H1 title="Show this QR Code to " ></H1>
+                 <H1 title="Generated Code" ></H1>
                 {(this.state.filled) ? <QRCode className="mx-auto" value={this.state.qrString} /> : ''}
+                <H2 title="Please show this code to authorized personel"></H2>
              </section>
             </div>
 
