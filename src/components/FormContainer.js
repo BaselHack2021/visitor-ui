@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Button from './Button';
 import H1 from './H1'
 import Label from './Label'
+import QRCode from "react-qr-code";
+
 
 export class FormContainer extends Component {
 
@@ -15,19 +17,25 @@ export class FormContainer extends Component {
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handlePhoneChange = this.handlePhoneChange.bind(this);
 
+
+
         this.state = {
             firstName: '',
             lastName: '',
             birthdate: '',
             email: '',
             phone: '',
+            filled: false,
+            qrString: '',
         }
     }
 
 
     handleSubmitForm(e) {
         e.preventDefault();
-        
+        this.setState({qrString: JSON.stringify(this.state)});
+        this.setState({filled: true});
+
         console.log(this.state)
     }
 
@@ -84,9 +92,11 @@ export class FormContainer extends Component {
                     </div>
 
                     <Button name="submit" displayName="Submit" type="submit" />
-                 </form>
-
+                    
+                </form>
+                {(this.state.filled) ? <QRCode value={this.state.qrString} /> : ''}
             </div>
+
         )
     }
 }
