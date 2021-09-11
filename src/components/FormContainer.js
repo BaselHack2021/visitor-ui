@@ -52,7 +52,9 @@ export class FormContainer extends Component {
         this.setState({ phone: e.target.value });
     }
 
+
     render() {
+
         return (
             <div className="container px-4 mt-12">
                 <H1 title="Registrieren"></H1>
@@ -84,6 +86,7 @@ export class FormContainer extends Component {
 
                     <button className="select-none outline-none shadow text-lg mt-8 float-right rounded-full px-4 py-2 font-semibold bg-blue-500 hover:bg-blue-700 text-white" name="Submit" type="submit">Sumbit</button>
                 </form>
+
             </div>
         )
     }
