@@ -10,7 +10,6 @@ export class FormContainer extends Component {
         super(props)
 
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
-
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
         this.handleLastNameChange = this.handleLastNameChange.bind(this);
         this.handleBirthdateChange = this.handleBirthdateChange.bind(this);
@@ -31,17 +30,6 @@ export class FormContainer extends Component {
         e.preventDefault();
         
         console.log(this.state)
-
-
-        // const object = {};
-
-        // formData.forEach(function(value, key){
-        //     object[key] = value;
-        // });
-        // let json = JSON.stringify(object);
-
-
-        // console.log(this.objectifyForm(json))
     }
 
     handleFirstNameChange(e) {
@@ -66,37 +54,35 @@ export class FormContainer extends Component {
 
     render() {
         return (
-            <div className="container px-4">
+            <div className="container px-4 mt-12">
                 <H1 title="Registrieren"></H1>
                 <form onSubmit={this.handleSubmitForm}>
 
-                    <div>
+                    <div className="mt-12">
                         <Label for="firstName" name="First name" />
                         <input name="firstName" type="text" placeholder="Type in your first name" onChange={this.handleFirstNameChange} />
                     </div>
 
-                    <div>
+                    <div className="mt-4">
                         <Label for="lastName" name="Lastname" />
                         <input name="lastName" type="text" placeholder="Type in your lastname" onChange={this.handleLastNameChange} />
                     </div>
-                    <div>
+                    <div className="mt-4">
 
                         <Label for="birthdate" name="Birthdate" />
                         <input name="birthdate" type="date" placeholder="Type in your birthdate" onChange={this.handleBirthdateChange} />
                     </div>
-                    <div>
+                    <div className="mt-4">
 
                         <Label for="email" name="E-Mail" />
                         <input name="email" type="email" placeholder="Type in your e-mail adress" onChange={this.handleEmailChange} />
                     </div>
-                    <div>
-
+                    <div className="mt-4">
                         <Label for="phone" name="Mobile" />
                         <input name="phone" type="text" placeholder="Type in your mobile phone number" onChange={this.handlePhoneChange} />
                     </div>
 
-
-                    <button className="rounded-full px-4 py-2 font-semibold bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" name="Submit" type="submit">Sumbit</button>
+                    <button className="select-none outline-none shadow text-lg mt-8 float-right rounded-full px-4 py-2 font-semibold bg-blue-500 hover:bg-blue-700 text-white" name="Submit" type="submit">Sumbit</button>
                 </form>
             </div>
         )
