@@ -7,8 +7,6 @@ import QRCode from "react-qr-code";
 import Select from 'react-select'
 
 
-
-
 export class FormContainer extends Component {
 
             options = [
