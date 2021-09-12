@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import Button from './Button';
 import H1 from './H1'
-import H2 from './H2'
 import Label from './Label'
 import QRCode from "react-qr-code";
-import Select from 'react-select'
 
 
 export class FormContainer extends Component {
