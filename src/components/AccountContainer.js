@@ -41,7 +41,7 @@ export class AccountContainer extends Component {
             <div className="container flex flex-col px-3 pb-36 h-screen box-border -mt-50">
                 <img className="z-0" src={account} alt="Logo"/>
                 <div
-                    className="z-10 container bg-white flex flex-col p-5 p-1 h-screen box-border h-1 shadow-lg rounded-2xl -mt-8 gb-green-500">
+                    className="bg-green-100 z-10 container bg-white flex flex-col p-5 p-1 h-screen box-border h-1 shadow-lg rounded-2xl -mt-8 gb-green-500">
                     <div className="flex flex-col justify-center items-center pt-1">
                         <H1 title={`${this.state.festivalData.balance} CHF`}/>
                         <Button name="submit" displayName="Connect credit card" type="submit"/>
@@ -53,8 +53,6 @@ export class AccountContainer extends Component {
                 <div className="flex flex-row flex-wrap justify-evenly">
                     <Achievement url={wine} alt="wine"/>
                     <Achievement url={bier} alt="bottle"/>
-                    <Achievement url={bottle} alt="bottle"/>
-                    <Achievement url={bottle} alt="bottle"/>
                     <Achievement url={bottle} alt="bottle"/>
 
                 </div>

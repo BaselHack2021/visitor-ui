@@ -8,7 +8,7 @@ export class Transaction extends Component {
             // </div>
         <div className="flex justify-start flex-row items-center p-3 shadow-lg w-full rounded-full ">
             <div
-                className="bg-green-500 flex justify-center items-center p-4 shadow-lg rounded-full h-4 w-4 mr-5">
+                className="bg-green-500 font-bold text-white flex justify-center items-center p-4 shadow-lg rounded-full h-4 w-4 mr-5">
                 {this.props.count}
             </div>
             <b className="text-left flex-grow"> {this.props.type}</b>
