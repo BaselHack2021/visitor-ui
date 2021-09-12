@@ -18,8 +18,8 @@ export class AccountContainer extends Component {
     }
 
     getData() {
-        let path = 'http://quer.iperka.com/festival-users/613d04360246e76ede24656d'
-        // let path = `http://quer.iperka.com/users/${this.props.match.params.id}`;
+        //let path = 'http://quer.iperka.com/festival-users/613d04360246e76ede24656d'
+         let path = `http://quer.iperka.com/festival-users/${this.props.match.params.id}`;
         fetch(path).then((data) => {
             data.json().then((e) => {
                 // console.log(e.data.email)
