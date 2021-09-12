@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { useParams } from 'react-router-dom'
+
 import H1 from './H1'
 import H2 from './H2'
 import H3 from './H3'
@@ -8,18 +10,17 @@ export class AccountContainer extends Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            id: props.match.params.id,
+            userData: {},
+        }
 
         this.getData()
-
-        this.state = {
-            balance: 0,
-            userData: {}
-        }
     }
 
     getData() {
-        // let path = 'http://localhost:3000/users/613cb22278ae99dfdccf2033'
-        let path = 'http://quer.iperka.com/users/613cb22278ae99dfdccf2033'
+        // let path = 'http://localhost:3000/users/613cf70c975c4abfb0ea5db9'
+        let path = `http://quer.iperka.com/users/${this.props.match.params.id}`;
         fetch(path).then((data) => {
             data.json().then((e) => {
                 // console.log(e.data.email)
@@ -43,7 +44,7 @@ export class AccountContainer extends Component {
                     <div>
                         <H3 title="Your bank balance is:"/>
                         <div className="mt-8">
-                            <H2 title={`${this.state.balance} CHF`}/>
+                            <H2 title={`${this.state.userData.email} CHF`}/>
                         </div>
                     </div>
                 </div>
