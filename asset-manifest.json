@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/BaselHack2021/visitor-ui/static/css/main.beb43ce3.chunk.css",
-    "main.js": "/BaselHack2021/visitor-ui/static/js/main.45998361.chunk.js",
-    "main.js.map": "/BaselHack2021/visitor-ui/static/js/main.45998361.chunk.js.map",
-    "runtime-main.js": "/BaselHack2021/visitor-ui/static/js/runtime-main.18c6188b.js",
-    "runtime-main.js.map": "/BaselHack2021/visitor-ui/static/js/runtime-main.18c6188b.js.map",
-    "static/js/2.84adf6fd.chunk.js": "/BaselHack2021/visitor-ui/static/js/2.84adf6fd.chunk.js",
-    "static/js/2.84adf6fd.chunk.js.map": "/BaselHack2021/visitor-ui/static/js/2.84adf6fd.chunk.js.map",
-    "static/js/3.9cd21142.chunk.js": "/BaselHack2021/visitor-ui/static/js/3.9cd21142.chunk.js",
-    "static/js/3.9cd21142.chunk.js.map": "/BaselHack2021/visitor-ui/static/js/3.9cd21142.chunk.js.map",
-    "index.html": "/BaselHack2021/visitor-ui/index.html",
-    "static/css/main.beb43ce3.chunk.css.map": "/BaselHack2021/visitor-ui/static/css/main.beb43ce3.chunk.css.map",
-    "static/js/2.84adf6fd.chunk.js.LICENSE.txt": "/BaselHack2021/visitor-ui/static/js/2.84adf6fd.chunk.js.LICENSE.txt"
+    "main.css": "/visitor-ui/static/css/main.beb43ce3.chunk.css",
+    "main.js": "/visitor-ui/static/js/main.45998361.chunk.js",
+    "main.js.map": "/visitor-ui/static/js/main.45998361.chunk.js.map",
+    "runtime-main.js": "/visitor-ui/static/js/runtime-main.98ca712c.js",
+    "runtime-main.js.map": "/visitor-ui/static/js/runtime-main.98ca712c.js.map",
+    "static/js/2.84adf6fd.chunk.js": "/visitor-ui/static/js/2.84adf6fd.chunk.js",
+    "static/js/2.84adf6fd.chunk.js.map": "/visitor-ui/static/js/2.84adf6fd.chunk.js.map",
+    "static/js/3.9cd21142.chunk.js": "/visitor-ui/static/js/3.9cd21142.chunk.js",
+    "static/js/3.9cd21142.chunk.js.map": "/visitor-ui/static/js/3.9cd21142.chunk.js.map",
+    "index.html": "/visitor-ui/index.html",
+    "static/css/main.beb43ce3.chunk.css.map": "/visitor-ui/static/css/main.beb43ce3.chunk.css.map",
+    "static/js/2.84adf6fd.chunk.js.LICENSE.txt": "/visitor-ui/static/js/2.84adf6fd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.18c6188b.js",
+    "static/js/runtime-main.98ca712c.js",
     "static/js/2.84adf6fd.chunk.js",
     "static/css/main.beb43ce3.chunk.css",
     "static/js/main.45998361.chunk.js"
