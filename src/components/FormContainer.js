@@ -25,12 +25,30 @@ export class FormContainer extends Component {
 
 
         this.state = {
-            firstName: '',
-            lastName: '',
-            gender: true,
-            birthdate: '',
-            email: '',
-            phone: '',
+            firstName: {
+                value: '',
+                message: ''
+            },
+            lastName: {
+                value: '',
+                message: ''
+            },
+            gender: {
+                value: true,
+                message: ''
+            },
+            birthdate: {
+                value: '',
+                message: ''
+            },
+            email: {
+                value: '',
+                message: ''
+            },
+            phone: {
+                value: '',
+                message: ''
+            },
             filled: false,
             qrString: ''
 
@@ -51,12 +69,12 @@ export class FormContainer extends Component {
         let data = this.state
 
         let body = {
-            firstName: data.firstName,
-            lastName: data.lastName,
-            gender: data.gender,
-            birthdate: data.birthdate,
-            email: data.email,
-            phoneNumber: data.phone
+            firstName: data.firstName.value,
+            lastName: data.lastName.value,
+            gender: data.gender === 'true' ? true : false,
+            birthdate: data.birthdate.value,
+            email: data.email.value,
+            phoneNumber: data.phone.value
         };
 
         let test = JSON.stringify(body);
@@ -72,35 +90,59 @@ export class FormContainer extends Component {
             .then(function (response) {
                 return response.json()
             }).then((body) => {
-            console.log(body.data._id);
-            this.setState({qrString: body.data._id});
-            this.setState({filled: true});
-        });
+                //console.log(body);
+
+                if (body.status === 200) {
+                    let newState = { ...this.state }
+
+                    const keys = Object.keys(body.errors);
+
+                    keys.forEach(key => {
+                        newState = { ...newState, [key]: { ...newState[key], message: body.errors[key].message } }
+                    });
+
+                    this.setState(newState);
+
+                    return;
+                }
+
+                this.setState({ qrString: body.data._id });
+                this.setState({ filled: true });
+            }).catch((res) => {
+                console.log(res)
+            });
     }
 
 
     handleFirstNameChange(e) {
-        this.setState({firstName: e.target.value});
+        // Spread syntax
+        const newState = { ...this.state, firstName: { ...this.state.firstName, value: e.target.value } }
+        this.setState(newState);
     }
 
     handleLastNameChange(e) {
-        this.setState({lastName: e.target.value});
+        const newState = { ...this.state, lastName: { ...this.state.lastName, value: e.target.value } }
+        this.setState(newState);
     }
 
     handleBirthdateChange(e) {
-        this.setState({birthdate: e.target.value});
+        const newState = { ...this.state, birthdate: { ...this.state.birthdate, value: e.target.value } }
+        this.setState(newState);
     }
 
     handleEmailChange(e) {
-        this.setState({email: e.target.value});
+        const newState = { ...this.state, email: { ...this.state.email, value: e.target.value } }
+        this.setState(newState);
     }
 
     handlePhoneChange(e) {
-        this.setState({phone: e.target.value});
+        const newState = { ...this.state, phone: { ...this.state.phone, value: e.target.value } }
+        this.setState(newState);
     }
 
     handleGenderChange(e) {
-        this.setState({gender: e.target.value});
+        const newState = { ...this.state, gender: { ...this.state.gender, value: e.target.value } }
+        this.setState(newState);
     }
 
     render() {
@@ -112,42 +154,41 @@ export class FormContainer extends Component {
                     <form onSubmit={this.handleSubmitForm}>
 
                         <div className="mt-12">
-                            <Label for="firstName" name="First Name"/>
-                            <input name="firstName" type="text" placeholder="Type in your first name"
-                                   onChange={this.handleFirstNameChange}/>
+                            <Label for="firstName" name="First Name" />
+                            <input required className={this.state.firstName.message ? 'error' : ''} name="firstName" type="text" placeholder="Type in your first name" onChange={this.handleFirstNameChange} />
+                            <span className="text-red-500 text-xs">{this.state.firstName.message ? this.state.firstName.message : ''}</span>
                         </div>
 
                         <div className="mt-4">
-                            <Label for="lastName" name="Lastname"/>
-                            <input name="lastName" type="text" placeholder="Type in your lastname"
-                                   onChange={this.handleLastNameChange}/>
+                            <Label for="lastName" name="Lastname" />
+                            <input required className={this.state.lastName.message ? 'error' : ''} name="lastName" type="text" placeholder="Type in your lastname" onChange={this.handleLastNameChange} />
+                            <span className="text-red-500 text-xs">{this.state.lastName.message ? this.state.lastName.message : ''}</span>
                         </div>
                         <div className="mt-4">
 
-                            <Label for="gender" name="Gender"/>
-                            <select className="Select" name="gender" value={this.state.gender}
-                                    onChange={this.handleGenderChange}>
+                            <Label for="gender" name="Gender" />
+                            <select className={this.state.gender.message ? 'error ' : ''} name="gender" value={this.state.gender.value} onChange={this.handleGenderChange}>
                                 <option value="true">Male</option>
                                 <option value="false">Female</option>
                             </select>
+                            <span className="text-red-500 text-xs">{this.state.gender.message ? this.state.gender.message : ''}</span>
                         </div>
                         <div className="mt-4">
 
-                            <Label for="birthdate" name="Birthdate"/>
-                            <input name="birthdate" type="date" placeholder="Type in your birthdate"
-                                   onChange={this.handleBirthdateChange}/>
-
+                            <Label for="birthdate" name="Birthdate" />
+                            <input required className={this.state.birthdate.message ? 'error' : ''} name="birthdate" type="date" placeholder="Type in your birthdate" onChange={this.handleBirthdateChange} />
+                            <span className="text-red-500 text-xs">{this.state.birthdate.message ? this.state.birthdate.message : ''}</span>
                         </div>
                         <div className="mt-4">
 
-                            <Label for="email" name="E-Mail"/>
-                            <input name="email" type="email" placeholder="Type in your e-mail adress"
-                                   onChange={this.handleEmailChange}/>
+                            <Label for="email" name="E-Mail" />
+                            <input required className={this.state.email.message ? 'error' : ''} name="email" type="email" placeholder="Type in your e-mail adress" onChange={this.handleEmailChange} />
+                            <span className="text-red-500 text-xs">{this.state.email.message ? this.state.email.message : ''}</span>
                         </div>
                         <div className="mt-4">
-                            <Label for="phone" name="Mobile"/>
-                            <input name="phone" type="text" placeholder="Type in your mobile phone number"
-                                   onChange={this.handlePhoneChange}/>
+                            <Label for="phone" name="Mobile" />
+                            <input className={this.state.phone.message ? 'error' : ''} name="phone" type="text" placeholder="Type in your mobile phone number" onChange={this.handlePhoneChange} />
+                            <span className="text-red-500 text-xs">{this.state.phone.message ? this.state.phone.message : ''}</span>
                         </div>
 
                         <Button name="submit" displayName="Submit" type="submit"/>
@@ -169,7 +210,6 @@ export class FormContainer extends Component {
                     </div>
                 </section>
             </div>
-
         )
     }
 }
