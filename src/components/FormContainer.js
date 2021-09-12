@@ -148,7 +148,7 @@ export class FormContainer extends Component {
     render() {
 
         return (
-            <div className="container mx-auto px-4 mt-12">
+            <div className="container mx-auto px-4 mt-12 mb-4">
                 <section hidden={this.state.filled} className="transition">
                     <H1 title="Register"></H1>
                     <form onSubmit={this.handleSubmitForm}>
