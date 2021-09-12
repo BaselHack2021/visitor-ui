@@ -53,15 +53,14 @@ export class AccountContainer extends Component {
                     <Achievement url="/bottle.png" alt="bottle"/>
                 </div>
                 <br/>
+
                 <h2 className="text-3xl text-center">Transactions</h2>
-
                 <div className="flex flex-row flex-wrap justify-evenly mt-4 gap-3">
-                    <Transaction type="Gin" count="1" amount="4"/>
-                    <Transaction type="Bier" count="1" amount="4"/>
-                    <Transaction type="Cola" count="1" amount="4"/>
-                    <Transaction type="Sandwitch" count="1" amount="4"/>
+                    <Transaction type="Gin" count="2" amount="4"/>
+                    <Transaction type="Bier" count="5" amount="4"/>
+                    <Transaction type="Cola" count="2" amount="4"/>
+                    <Transaction type="Sandwitch" count="2" amount="4"/>
                     <Transaction type="Pommes" count="1" amount="4"/>
-
                 </div>
                 <br/><br/><br/><br/>
             </div>
