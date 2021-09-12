@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
-import { useParams } from 'react-router-dom'
-
+import Button from './Button';
 import H1 from './H1'
-import H2 from './H2'
-import H3 from './H3'
-import css from '../AccountCss.css'
+import Achievement from "./Achievement";
+import Transaction from "./Transaction";
 
 export class AccountContainer extends Component {
 
@@ -13,46 +11,59 @@ export class AccountContainer extends Component {
         this.state = {
             id: props.match.params.id,
             userData: {},
+            festivalData: {},
         }
 
         this.getData()
     }
 
     getData() {
-        // let path = 'http://localhost:3000/users/613cf70c975c4abfb0ea5db9'
-        let path = `http://quer.iperka.com/users/${this.props.match.params.id}`;
+        let path = 'http://quer.iperka.com/festival-users/613d04360246e76ede24656d'
+        // let path = `http://quer.iperka.com/users/${this.props.match.params.id}`;
         fetch(path).then((data) => {
             data.json().then((e) => {
                 // console.log(e.data.email)
-                this.setState({userData: e.data})
+                this.setState({userData: e.data.user})
+                this.setState({festivalData: e.data})
                 console.log(this.state)
             })
         });
     }
 
-    userData() {
-        if (this.state.userData) {
-            return <div> {this.state.userData.firstName} </div>;
-        }
-    }
 
     render() {
         return (
-            <div className="container flex flex-col px-4 pt-12 pb-36 h-screen box-border">
-                <H1 title="Account"/>
-                <div className="my-auto">
-                    <div>
-                        <H3 title="Your bank balance is:"/>
-                        <div className="mt-8">
-                            <H2 title={`${this.state.userData.email} CHF`}/>
-                        </div>
+            <div className="container flex flex-col px-3 pb-36 h-screen box-border -mt-50">
+                <img className="z-0" src={'/account.png'} alt="Logo"/>
+                <div
+                    className="z-10 container bg-white flex flex-col p-5 p-1 h-screen box-border h-1 shadow-lg rounded-2xl -mt-8 gb-green-500">
+                    <div className="flex flex-col justify-center items-center pt-1">
+                        <H1 title={`${this.state.festivalData.balance} CHF`}/>
+                        <Button name="submit" displayName="Connect credit card" type="submit"/>
                     </div>
                 </div>
-                <div className="flex flex-row justify-center items-center w-full">
-                    <button className="bg-black text-white p-4 rounded ">
-                        Connect credit card
-                    </button>
+
+                <h2 className="text-3xl text-center m-8">Your achievements!</h2>
+
+                <div className="flex flex-row flex-wrap justify-evenly">
+                    <Achievement url="/wine.png" alt="wine"/>
+                    <Achievement url="/bier.png" alt="bier"/>
+                    <Achievement url="/wine.png" alt="bottle"/>
+                    <Achievement url="/bottle.png" alt="bottle"/>
+                    <Achievement url="/bottle.png" alt="bottle"/>
                 </div>
+                <br/>
+                <h2 className="text-3xl text-center">Transactions</h2>
+
+                <div className="flex flex-row flex-wrap justify-evenly mt-4 gap-3">
+                    <Transaction type="Gin" count="1" amount="4"/>
+                    <Transaction type="Bier" count="1" amount="4"/>
+                    <Transaction type="Cola" count="1" amount="4"/>
+                    <Transaction type="Sandwitch" count="1" amount="4"/>
+                    <Transaction type="Pommes" count="1" amount="4"/>
+
+                </div>
+                <br/><br/><br/><br/>
             </div>
         )
     }
