@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import Button from './Button';
 import H1 from './H1'
-import H2 from './H2'
 import Label from './Label'
 import QRCode from "react-qr-code";
-import Select from 'react-select'
 
 
 export class FormContainer extends Component {
@@ -157,8 +155,8 @@ export class FormContainer extends Component {
                             <div className="rounded-2xl bg-white p-4">
                                 {(this.state.filled) ? <QRCode className="w-full bg-white" width="12rem" height="12rem" value={this.state.qrString} /> : ''}
                             </div>
-                            <div class="mt-8 w-72">
-                                <p class="text-xl text-center mx-auto">Please show this code to authorized personel</p>
+                            <div className="mt-8 w-72">
+                                <p className="text-xl text-center mx-auto">Please show this code to authorized personel</p>
                             </div>
                         </div>
                     </div>
