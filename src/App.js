@@ -20,6 +20,9 @@ export default function App() {
             <Route path="/">
               <FormContainer/>
             </Route>
+            <Route path="/a">
+              <FormContainer/>
+            </Route>
           </Switch>
       </Router>
   );
