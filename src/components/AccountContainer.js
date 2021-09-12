@@ -38,7 +38,6 @@ export class AccountContainer extends Component {
 
     render() {
         return (
-<<<<<<< HEAD
             <div className="container flex flex-col px-3 pb-36 h-screen box-border -mt-50">
                 <img src={'account.png'} alt="Logo" />
                 <div className="z-50 container flex flex-col px-5 p-1 h-screen box-border h-1 shadow-md rounded-2xl my-4 gb-green-500">
@@ -53,15 +52,6 @@ export class AccountContainer extends Component {
                                     Connect credit card
                                 </button>
                             </div>
-=======
-            <div className="container flex flex-col px-4 pt-12 pb-36 h-screen box-border">
-                <H1 title="Account"/>
-                <div className="my-auto">
-                    <div>
-                        <H3 title="Your bank balance is:"/>
-                        <div className="mt-8">
-                            <H2 title={`${this.state.userData.email} CHF`}/>
->>>>>>> 80a42b68decbd667a57df0618177d693256bce8b
                         </div>
                     </div>
                 </div>
