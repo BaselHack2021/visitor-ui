@@ -5,7 +5,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from "react-router-dom";
 
 
@@ -15,8 +15,7 @@ export default function App() {
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/account">
-              <AccountContainer />
+            <Route path="/account/:id" component={AccountContainer}>
             </Route>
             <Route path="/">
               <FormContainer/>
