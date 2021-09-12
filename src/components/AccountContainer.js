@@ -15,22 +15,33 @@ export class AccountContainer extends Component {
         super(props)
         this.state = {
             id: props.match.params.id,
-            userData: {},
+            userData: '',
             festivalData: {},
+            festivalUser: '',
         }
 
         this.getData()
     }
+    // qid 613ddb13347b6bd5b0e0ba2d
 
     getData() {
-        // let path = 'http://quer.iperka.com/festival-users/613d04360246e76ede24656d'
-        let path = `http://quer.iperka.com/festival-users/${this.props.match.params.id}`;
+
+
+        //let path = 'http://quer.iperka.com/festival-users/613d04360246e76ede24656d'
+        let path = `http://quer.iperka.com/qr-codes/${this.props.match.params.id}`;
         fetch(path).then((data) => {
             data.json().then((e) => {
-                // console.log(e.data.email)
-                this.setState({userData: e.data.user})
-                this.setState({festivalData: e.data})
-                console.log(this.state)
+                console.log(e)
+                //this.setState({festivalData: e.data})
+                console.log(e)
+                let path2 = `http://quer.iperka.com/festival-users/${e.data.user}`;
+
+                fetch(path2).then((d) => {
+                    d.json().then((a) => {
+                        console.log(a);
+                        this.setState({userData: a.data.balance});
+                    })
+                })
             })
         });
     }
@@ -43,7 +54,7 @@ export class AccountContainer extends Component {
                 <div
                     className="bg-green-100 z-10 container bg-white flex flex-col p-5 p-1 h-screen box-border h-1 shadow-lg rounded-2xl -mt-8 gb-green-500">
                     <div className="flex flex-col justify-center items-center pt-1">
-                        <H1 title={`${this.state.festivalData.balance} CHF`}/>
+                        <H1 title={`${this.state.userData} CHF`}/>
                         <Button name="submit" displayName="Connect credit card" type="submit"/>
                     </div>
                 </div>
@@ -54,7 +65,6 @@ export class AccountContainer extends Component {
                     <Achievement url={wine} alt="wine"/>
                     <Achievement url={bier} alt="bottle"/>
                     <Achievement url={bottle} alt="bottle"/>
-
                 </div>
                 <br/>
 
