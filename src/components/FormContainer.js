@@ -45,7 +45,6 @@ export class FormContainer extends Component {
         this.pushData();
         console.log(this.state)
         //register
-
     }
 
     pushData() {
